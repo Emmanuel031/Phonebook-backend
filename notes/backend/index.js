@@ -1,8 +1,9 @@
 const express = require('express'),
-    cors = require('cors'),
-    app = express();
+app = express(),
+cors = require('cors');
 
 app.use(cors())
+app.use(express.static('dist'))
 
 const notes = [
     {
@@ -44,16 +45,16 @@ const notes = [
 
 
 app.get('/', (request, response) => {
-    response.send('<h1>Hello World</h1>')
-});
+    response.send('<h1>Hello world</h1>')
+})
 
 app.get('/api/notes', (request, response) => {
     response.json(notes);
 })
 
 
-const PORT = process.env.PORT || 3001
+
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`Server running on PORT ${PORT}`)
-});
-
+})
