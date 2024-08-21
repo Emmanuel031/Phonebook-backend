@@ -4,9 +4,10 @@ const express = require('express'),
     date = new Date(),
     app = express();
 
-    
+
 app.use(express.json())
 app.use(morgan('tiny'))
+app.use(express.static('dist'))
 app.use(cors())
 
 const generateId = () => {
